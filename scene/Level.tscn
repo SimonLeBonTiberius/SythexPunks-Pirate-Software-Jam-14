@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnx6hcn3mn5ao"]
+[gd_scene load_steps=9 format=3 uid="uid://bnx6hcn3mn5ao"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_2gwou"]
+[ext_resource type="PackedScene" uid="uid://c18woqs77taft" path="res://prefab/player.tscn" id="1_3t2u8"]
 
 [sub_resource type="GDScript" id="GDScript_m8blk"]
 script/source = "extends Node3D
@@ -38,18 +38,6 @@ size = Vector3(1, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sep5m"]
 size = Vector3(1, 0.1, 1)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8npj1"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_slbns"]
-top_radius = 0.2
-bottom_radius = 0.001
-height = 0.5
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ffpa1"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wl5ab"]
-albedo_color = Color(0.796078, 0.772549, 0.776471, 1)
 
 [node name="Root" type="Node3D"]
 script = SubResource("GDScript_m8blk")
@@ -1295,20 +1283,7 @@ skeleton = NodePath("../../../..")
 [node name="Hitbox" type="CollisionShape3D" parent="Ground/Row 10/Tile 10"]
 shape = SubResource("BoxShape3D_sep5m")
 
-[node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("1_2gwou")
-
-[node name="Hitbox" type="CollisionShape3D" parent="Player"]
-shape = SubResource("CapsuleShape3D_8npj1")
-
-[node name="Nose" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 0.3, -0.75)
-mesh = SubResource("CylinderMesh_slbns")
-
-[node name="Body" type="MeshInstance3D" parent="Player"]
-mesh = SubResource("CapsuleMesh_ffpa1")
-surface_material_override/0 = SubResource("StandardMaterial3D_wl5ab")
+[node name="Player" parent="." instance=ExtResource("1_3t2u8")]
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 10, 10)
