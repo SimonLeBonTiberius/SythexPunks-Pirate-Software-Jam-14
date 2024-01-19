@@ -1,4 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbq2xwqt3gil8"]
+[gd_scene load_steps=7 format=3 uid="uid://cbq2xwqt3gil8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m828j"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8u680"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_bj1qg"]
 
@@ -11,20 +15,21 @@ albedo_color = Color(0.0470588, 0.439216, 0.266667, 1)
 [sub_resource type="TorusMesh" id="TorusMesh_ynw72"]
 material = SubResource("StandardMaterial3D_et61v")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_8u680"]
-
 [node name="Seed" type="Node3D"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_m828j")
+can_sleep = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+shape = SubResource("SphereShape3D_8u680")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
 mesh = SubResource("SphereMesh_bj1qg")
+skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ofy2p")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D/MeshInstance3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.136232, 0)
 mesh = SubResource("TorusMesh_ynw72")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("SphereShape3D_8u680")

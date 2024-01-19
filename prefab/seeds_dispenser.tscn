@@ -22,10 +22,11 @@ material = SubResource("StandardMaterial3D_wqnt1")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g75ce"]
 
-[node name="SeedsDispenser" type="Node3D" node_paths=PackedStringArray("labelNode")]
+[node name="SeedsDispenser" type="Node3D" node_paths=PackedStringArray("labelNode", "seedSpawn")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_d2tmo")
 labelNode = NodePath("Label3D")
+seedSpawn = NodePath("SeedSpawn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_fm5k4")
@@ -57,6 +58,9 @@ transform = Transform3D(1, 0, 0, 0, 0.68428, 0.729219, 0, -0.729219, 0.68428, 0.
 visible = false
 pixel_size = 0.01
 text = "PRESS F"
+
+[node name="SeedSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.828483, 0, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="showInteractionButton"]
 [connection signal="body_exited" from="Area3D" to="." method="hideInteractionButton"]
