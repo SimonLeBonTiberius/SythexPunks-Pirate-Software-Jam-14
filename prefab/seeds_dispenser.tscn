@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://didv5a1wwq7ns"]
+[gd_scene load_steps=10 format=3 uid="uid://didv5a1wwq7ns"]
 
 [ext_resource type="Script" path="res://scipt/SeedsDispenser.gd" id="1_d2tmo"]
 
@@ -16,13 +16,16 @@ albedo_color = Color(0.0470588, 1, 1, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ipvm1"]
 material = SubResource("StandardMaterial3D_wqnt1")
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_2rhyu"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_mdp1v"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g75ce"]
 
-[node name="SeedsDispenser" type="Node3D"]
+[node name="SeedsDispenser" type="Node3D" node_paths=PackedStringArray("labelNode")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_d2tmo")
+labelNode = NodePath("Label3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_fm5k4")
@@ -32,6 +35,10 @@ surface_material_override/0 = SubResource("ORMMaterial3D_kmag0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.446697, 0)
 mesh = SubResource("CapsuleMesh_ipvm1")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-0.00119379, 0.199996, 0, -0.199996, -0.00119379, 0, 0, 0, 0.2, 0.464218, 0, 0)
+mesh = SubResource("CylinderMesh_2rhyu")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -39,12 +46,17 @@ shape = SubResource("SphereShape3D_mdp1v")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_g75ce")
 
-[node name="Area3D" type="Area3D" parent="Area3D"]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.68428, 0.729219, 0, -0.729219, 0.68428, 0.0731804, 2.15293, 1.24433)
+visible = false
+pixel_size = 0.01
+text = "PRESS F"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D/Area3D"]
-shape = SubResource("SphereShape3D_g75ce")
+[connection signal="body_entered" from="Area3D" to="." method="showInteractionButton"]
+[connection signal="body_exited" from="Area3D" to="." method="hideInteractionButton"]

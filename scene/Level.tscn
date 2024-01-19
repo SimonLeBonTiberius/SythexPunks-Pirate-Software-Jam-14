@@ -1,20 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnx6hcn3mn5ao"]
+[gd_scene load_steps=8 format=3 uid="uid://bnx6hcn3mn5ao"]
 
 [ext_resource type="PackedScene" uid="uid://c18woqs77taft" path="res://prefab/player.tscn" id="1_3t2u8"]
-
-[sub_resource type="GDScript" id="GDScript_m8blk"]
-script/source = "extends Node3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hh1sr"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,7 +26,6 @@ size = Vector3(1, 0.1, 1)
 size = Vector3(1, 0.1, 1)
 
 [node name="Root" type="Node3D"]
-script = SubResource("GDScript_m8blk")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ataqd")
@@ -55,6 +40,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
 
 [node name="Tile 0" type="StaticBody3D" parent="Ground/Row 0" groups=["tiles"]]
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 0/Tile 0"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -65,6 +51,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 1" type="StaticBody3D" parent="Ground/Row 0" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 0/Tile 1"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -75,6 +62,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 2" type="StaticBody3D" parent="Ground/Row 0" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 0/Tile 2"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -85,6 +73,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 3" type="StaticBody3D" parent="Ground/Row 0" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 0/Tile 3"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -95,6 +84,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 4" type="StaticBody3D" parent="Ground/Row 0" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 0/Tile 4"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -105,6 +95,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 5" type="StaticBody3D" parent="Ground/Row 0" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 0/Tile 5"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -115,6 +106,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 6" type="StaticBody3D" parent="Ground/Row 0" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 0/Tile 6"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -125,6 +117,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 7" type="StaticBody3D" parent="Ground/Row 0" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 0/Tile 7"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -135,6 +128,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 8" type="StaticBody3D" parent="Ground/Row 0" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 0/Tile 8"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -145,6 +139,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 9" type="StaticBody3D" parent="Ground/Row 0" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 0/Tile 9"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -155,6 +150,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 10" type="StaticBody3D" parent="Ground/Row 0" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 0/Tile 10"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -167,6 +163,7 @@ shape = SubResource("BoxShape3D_sep5m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -4)
 
 [node name="Tile 0" type="StaticBody3D" parent="Ground/Row 1" groups=["tiles"]]
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 1/Tile 0"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -177,6 +174,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 1" type="StaticBody3D" parent="Ground/Row 1" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 1/Tile 1"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -187,6 +185,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 2" type="StaticBody3D" parent="Ground/Row 1" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 1/Tile 2"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -197,6 +196,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 3" type="StaticBody3D" parent="Ground/Row 1" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 1/Tile 3"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -207,6 +207,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 4" type="StaticBody3D" parent="Ground/Row 1" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 1/Tile 4"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -217,6 +218,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 5" type="StaticBody3D" parent="Ground/Row 1" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 1/Tile 5"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -227,6 +229,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 6" type="StaticBody3D" parent="Ground/Row 1" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 1/Tile 6"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -237,6 +240,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 7" type="StaticBody3D" parent="Ground/Row 1" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 1/Tile 7"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -247,6 +251,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 8" type="StaticBody3D" parent="Ground/Row 1" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 1/Tile 8"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -257,6 +262,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 9" type="StaticBody3D" parent="Ground/Row 1" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 1/Tile 9"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -267,6 +273,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 10" type="StaticBody3D" parent="Ground/Row 1" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 1/Tile 10"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -279,6 +286,7 @@ shape = SubResource("BoxShape3D_sep5m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -3)
 
 [node name="Tile 0" type="StaticBody3D" parent="Ground/Row 2" groups=["tiles"]]
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 2/Tile 0"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -289,6 +297,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 1" type="StaticBody3D" parent="Ground/Row 2" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 2/Tile 1"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -299,6 +308,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 2" type="StaticBody3D" parent="Ground/Row 2" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 2/Tile 2"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -309,6 +319,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 3" type="StaticBody3D" parent="Ground/Row 2" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 2/Tile 3"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -319,6 +330,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 4" type="StaticBody3D" parent="Ground/Row 2" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 2/Tile 4"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -329,6 +341,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 5" type="StaticBody3D" parent="Ground/Row 2" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 2/Tile 5"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -339,6 +352,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 6" type="StaticBody3D" parent="Ground/Row 2" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 2/Tile 6"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -349,6 +363,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 7" type="StaticBody3D" parent="Ground/Row 2" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 2/Tile 7"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -359,6 +374,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 8" type="StaticBody3D" parent="Ground/Row 2" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 2/Tile 8"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -369,6 +385,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 9" type="StaticBody3D" parent="Ground/Row 2" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 2/Tile 9"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -379,6 +396,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 10" type="StaticBody3D" parent="Ground/Row 2" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 2/Tile 10"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -391,6 +409,7 @@ shape = SubResource("BoxShape3D_sep5m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2)
 
 [node name="Tile 0" type="StaticBody3D" parent="Ground/Row 3" groups=["tiles"]]
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 3/Tile 0"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -401,6 +420,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 1" type="StaticBody3D" parent="Ground/Row 3" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 3/Tile 1"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -411,6 +431,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 2" type="StaticBody3D" parent="Ground/Row 3" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 3/Tile 2"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -421,6 +442,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 3" type="StaticBody3D" parent="Ground/Row 3" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 3/Tile 3"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -431,6 +453,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 4" type="StaticBody3D" parent="Ground/Row 3" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 3/Tile 4"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -441,6 +464,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 5" type="StaticBody3D" parent="Ground/Row 3" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 3/Tile 5"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -451,6 +475,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 6" type="StaticBody3D" parent="Ground/Row 3" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 3/Tile 6"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -461,6 +486,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 7" type="StaticBody3D" parent="Ground/Row 3" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 3/Tile 7"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -471,6 +497,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 8" type="StaticBody3D" parent="Ground/Row 3" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 3/Tile 8"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -481,6 +508,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 9" type="StaticBody3D" parent="Ground/Row 3" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 3/Tile 9"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -491,6 +519,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 10" type="StaticBody3D" parent="Ground/Row 3" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 3/Tile 10"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -503,6 +532,7 @@ shape = SubResource("BoxShape3D_sep5m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1)
 
 [node name="Tile 0" type="StaticBody3D" parent="Ground/Row 4" groups=["tiles"]]
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 4/Tile 0"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -513,6 +543,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 1" type="StaticBody3D" parent="Ground/Row 4" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 4/Tile 1"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -523,6 +554,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 2" type="StaticBody3D" parent="Ground/Row 4" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 4/Tile 2"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -533,6 +565,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 3" type="StaticBody3D" parent="Ground/Row 4" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 4/Tile 3"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -543,6 +576,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 4" type="StaticBody3D" parent="Ground/Row 4" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 4/Tile 4"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -553,6 +587,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 5" type="StaticBody3D" parent="Ground/Row 4" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 4/Tile 5"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -563,6 +598,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 6" type="StaticBody3D" parent="Ground/Row 4" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 4/Tile 6"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -573,6 +609,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 7" type="StaticBody3D" parent="Ground/Row 4" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 4/Tile 7"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -583,6 +620,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 8" type="StaticBody3D" parent="Ground/Row 4" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 4/Tile 8"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -593,6 +631,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 9" type="StaticBody3D" parent="Ground/Row 4" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 4/Tile 9"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -603,6 +642,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 10" type="StaticBody3D" parent="Ground/Row 4" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 4/Tile 10"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -615,6 +655,7 @@ shape = SubResource("BoxShape3D_sep5m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 
 [node name="Tile 0" type="StaticBody3D" parent="Ground/Row 5" groups=["tiles"]]
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 5/Tile 0"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -625,6 +666,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 1" type="StaticBody3D" parent="Ground/Row 5" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 5/Tile 1"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -635,6 +677,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 2" type="StaticBody3D" parent="Ground/Row 5" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 5/Tile 2"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -645,6 +688,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 3" type="StaticBody3D" parent="Ground/Row 5" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 5/Tile 3"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -655,6 +699,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 4" type="StaticBody3D" parent="Ground/Row 5" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 5/Tile 4"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -665,6 +710,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 5" type="StaticBody3D" parent="Ground/Row 5" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 5/Tile 5"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -675,6 +721,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 6" type="StaticBody3D" parent="Ground/Row 5" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 5/Tile 6"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -685,6 +732,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 7" type="StaticBody3D" parent="Ground/Row 5" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 5/Tile 7"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -695,6 +743,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 8" type="StaticBody3D" parent="Ground/Row 5" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 5/Tile 8"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -705,6 +754,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 9" type="StaticBody3D" parent="Ground/Row 5" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 5/Tile 9"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -715,6 +765,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 10" type="StaticBody3D" parent="Ground/Row 5" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 5/Tile 10"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -727,6 +778,7 @@ shape = SubResource("BoxShape3D_sep5m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1)
 
 [node name="Tile 0" type="StaticBody3D" parent="Ground/Row 6" groups=["tiles"]]
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 6/Tile 0"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -737,6 +789,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 1" type="StaticBody3D" parent="Ground/Row 6" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 6/Tile 1"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -747,6 +800,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 2" type="StaticBody3D" parent="Ground/Row 6" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 6/Tile 2"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -757,6 +811,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 3" type="StaticBody3D" parent="Ground/Row 6" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 6/Tile 3"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -767,6 +822,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 4" type="StaticBody3D" parent="Ground/Row 6" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 6/Tile 4"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -777,6 +833,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 5" type="StaticBody3D" parent="Ground/Row 6" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 6/Tile 5"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -787,6 +844,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 6" type="StaticBody3D" parent="Ground/Row 6" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 6/Tile 6"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -797,6 +855,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 7" type="StaticBody3D" parent="Ground/Row 6" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 6/Tile 7"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -807,6 +866,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 8" type="StaticBody3D" parent="Ground/Row 6" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 6/Tile 8"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -817,6 +877,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 9" type="StaticBody3D" parent="Ground/Row 6" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 6/Tile 9"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -827,6 +888,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 10" type="StaticBody3D" parent="Ground/Row 6" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 6/Tile 10"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -839,6 +901,7 @@ shape = SubResource("BoxShape3D_sep5m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 2)
 
 [node name="Tile 0" type="StaticBody3D" parent="Ground/Row 7" groups=["tiles"]]
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 7/Tile 0"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -849,6 +912,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 1" type="StaticBody3D" parent="Ground/Row 7" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 7/Tile 1"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -859,6 +923,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 2" type="StaticBody3D" parent="Ground/Row 7" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 7/Tile 2"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -869,6 +934,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 3" type="StaticBody3D" parent="Ground/Row 7" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 7/Tile 3"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -879,6 +945,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 4" type="StaticBody3D" parent="Ground/Row 7" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 7/Tile 4"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -889,6 +956,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 5" type="StaticBody3D" parent="Ground/Row 7" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 7/Tile 5"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -899,6 +967,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 6" type="StaticBody3D" parent="Ground/Row 7" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 7/Tile 6"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -909,6 +978,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 7" type="StaticBody3D" parent="Ground/Row 7" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 7/Tile 7"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -919,6 +989,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 8" type="StaticBody3D" parent="Ground/Row 7" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 7/Tile 8"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -929,6 +1000,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 9" type="StaticBody3D" parent="Ground/Row 7" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 7/Tile 9"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -939,6 +1011,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 10" type="StaticBody3D" parent="Ground/Row 7" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 7/Tile 10"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -951,6 +1024,7 @@ shape = SubResource("BoxShape3D_sep5m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
 
 [node name="Tile 0" type="StaticBody3D" parent="Ground/Row 8" groups=["tiles"]]
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 8/Tile 0"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -961,6 +1035,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 1" type="StaticBody3D" parent="Ground/Row 8" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 8/Tile 1"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -971,6 +1046,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 2" type="StaticBody3D" parent="Ground/Row 8" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 8/Tile 2"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -981,6 +1057,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 3" type="StaticBody3D" parent="Ground/Row 8" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 8/Tile 3"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -991,6 +1068,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 4" type="StaticBody3D" parent="Ground/Row 8" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 8/Tile 4"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1001,6 +1079,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 5" type="StaticBody3D" parent="Ground/Row 8" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 8/Tile 5"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1011,6 +1090,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 6" type="StaticBody3D" parent="Ground/Row 8" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 8/Tile 6"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1021,6 +1101,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 7" type="StaticBody3D" parent="Ground/Row 8" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 8/Tile 7"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1031,6 +1112,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 8" type="StaticBody3D" parent="Ground/Row 8" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 8/Tile 8"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1041,6 +1123,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 9" type="StaticBody3D" parent="Ground/Row 8" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 8/Tile 9"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1051,6 +1134,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 10" type="StaticBody3D" parent="Ground/Row 8" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 8/Tile 10"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1063,6 +1147,7 @@ shape = SubResource("BoxShape3D_sep5m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 4)
 
 [node name="Tile 0" type="StaticBody3D" parent="Ground/Row 9" groups=["tiles"]]
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 9/Tile 0"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1073,6 +1158,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 1" type="StaticBody3D" parent="Ground/Row 9" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 9/Tile 1"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1083,6 +1169,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 2" type="StaticBody3D" parent="Ground/Row 9" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 9/Tile 2"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1093,6 +1180,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 3" type="StaticBody3D" parent="Ground/Row 9" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 9/Tile 3"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1103,6 +1191,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 4" type="StaticBody3D" parent="Ground/Row 9" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 9/Tile 4"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1113,6 +1202,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 5" type="StaticBody3D" parent="Ground/Row 9" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 9/Tile 5"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1123,6 +1213,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 6" type="StaticBody3D" parent="Ground/Row 9" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 9/Tile 6"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1133,6 +1224,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 7" type="StaticBody3D" parent="Ground/Row 9" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 9/Tile 7"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1143,6 +1235,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 8" type="StaticBody3D" parent="Ground/Row 9" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 9/Tile 8"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1153,6 +1246,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 9" type="StaticBody3D" parent="Ground/Row 9" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 9/Tile 9"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1163,6 +1257,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 10" type="StaticBody3D" parent="Ground/Row 9" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 9/Tile 10"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1175,6 +1270,7 @@ shape = SubResource("BoxShape3D_sep5m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
 
 [node name="Tile 0" type="StaticBody3D" parent="Ground/Row 10" groups=["tiles"]]
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 10/Tile 0"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1185,6 +1281,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 1" type="StaticBody3D" parent="Ground/Row 10" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 10/Tile 1"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1195,6 +1292,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 2" type="StaticBody3D" parent="Ground/Row 10" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 10/Tile 2"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1205,6 +1303,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 3" type="StaticBody3D" parent="Ground/Row 10" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 10/Tile 3"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1215,6 +1314,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 4" type="StaticBody3D" parent="Ground/Row 10" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 10/Tile 4"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1225,6 +1325,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 5" type="StaticBody3D" parent="Ground/Row 10" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 10/Tile 5"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1235,6 +1336,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 6" type="StaticBody3D" parent="Ground/Row 10" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 10/Tile 6"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1245,6 +1347,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 7" type="StaticBody3D" parent="Ground/Row 10" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 10/Tile 7"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1255,6 +1358,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 8" type="StaticBody3D" parent="Ground/Row 10" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 10/Tile 8"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1265,6 +1369,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 9" type="StaticBody3D" parent="Ground/Row 10" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 10/Tile 9"]
 mesh = SubResource("BoxMesh_88bwk")
@@ -1275,6 +1380,7 @@ shape = SubResource("BoxShape3D_sep5m")
 
 [node name="Tile 10" type="StaticBody3D" parent="Ground/Row 10" groups=["tiles"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Row 10/Tile 10"]
 mesh = SubResource("BoxMesh_88bwk")
