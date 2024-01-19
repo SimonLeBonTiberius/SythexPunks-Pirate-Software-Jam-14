@@ -41,7 +41,9 @@ func _physics_process(delta):
 	# Check collision with tiles
 	for i in get_slide_collision_count():
 		var collision: KinematicCollision3D = get_slide_collision(i)
-		var mesh: MeshInstance3D = collision.get_collider().get_node("MeshInstance3D")
-		var current_material = mesh.get_active_material(0).duplicate()
-		current_material.albedo_color = Color("5ca904")
-		mesh.set_surface_override_material(0, current_material)
+		var collidervar= collision.get_collider()
+		if(true):#collidervar.is_in_group('tiles')):
+			var mesh: MeshInstance3D = collision.get_collider().get_node("MeshInstance3D")
+			var current_material = mesh.get_active_material(0).duplicate()
+			current_material.albedo_color = Color("5ca904")
+			mesh.set_surface_override_material(0, current_material)
