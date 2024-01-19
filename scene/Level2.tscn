@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://1ag0o8rl4yxg"]
+[gd_scene load_steps=10 format=3 uid="uid://1ag0o8rl4yxg"]
 
 [ext_resource type="PackedScene" uid="uid://c18woqs77taft" path="res://prefab/player.tscn" id="1_kpp8a"]
 [ext_resource type="PackedScene" uid="uid://didv5a1wwq7ns" path="res://prefab/seeds_dispenser.tscn" id="2_ahgep"]
+[ext_resource type="PackedScene" uid="uid://b1doywa5nuo0q" path="res://prefab/water_dispenser.tscn" id="3_0btfr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hh1sr"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -1393,10 +1394,13 @@ shape = SubResource("BoxShape3D_sep5m")
 [node name="Player" parent="." instance=ExtResource("1_kpp8a")]
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 10, 10)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 10)
 keep_aspect = 0
 size = 20.0
 far = 100.0
 
 [node name="SeedsDispenser" parent="." instance=ExtResource("2_ahgep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38971, 0.726786, 2.55186)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38971, 0.726786, 4.42611)
+
+[node name="WaterDispenser" parent="." instance=ExtResource("3_0btfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44233, 0.519712, -4.66695)

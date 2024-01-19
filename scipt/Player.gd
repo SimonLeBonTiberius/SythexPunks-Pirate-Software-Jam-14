@@ -5,8 +5,35 @@ const SPEED = 4.0
 const JUMP_VELOCITY = 6.0
 const MOUSE_SENSITIVITY = 0.002
 @export var  body: Node3D
+@export var lbl_water: Label3D
+@export var lbl_seeds: Label3D
+var counter_water = 0
+var counter_seeds = 0
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+func _ready():
+	var node_seed_dispenser = get_tree().get_nodes_in_group("seed_dispenser")[0]
+	var node_water_dispenser = get_tree().get_nodes_in_group("water_dispenser")[0]
+	node_seed_dispenser.connect('seed_picked',addSeeds)
+	node_water_dispenser.connect('water_picked',addWater)
+	
+func addSeeds():
+	counter_seeds +=1
+	lbl_seeds.set_text(str(counter_seeds))
+	
+func addWater():
+	counter_water +=1
+	lbl_water.set_text(str(counter_water))
+	
+func useSeeds():
+	counter_seeds -=1
+	lbl_seeds.set_text(str(counter_seeds))
+	
+func useWater():
+	counter_water -=1
+	lbl_water.set_text(str(counter_water))
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():

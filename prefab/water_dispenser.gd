@@ -1,9 +1,8 @@
 extends Node
 @export var labelNode :Node
-@export var seedSpawn :Node
-var seed = preload("res://prefab/seed.tscn")
+
 var interactible = false
-signal seed_picked()
+signal water_picked()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,7 +13,7 @@ signal seed_picked()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func hideInteractionButton(body):
+func water_dispenserhideInteractionButton(body):
 	labelNode.hide()
 	interactible = false
 func showInteractionButton(body):
@@ -22,9 +21,6 @@ func showInteractionButton(body):
 	interactible = true
 func _input(event):
 	if event is InputEventKey and event.pressed && interactible:
-		if event.keycode == KEY_F && seedSpawn.get_child_count() < 3:
-			var instance_seed = seed.instantiate() 
-			seedSpawn.add_child(instance_seed)
-		if event.keycode == KEY_E && seedSpawn.get_child_count() > 0:
-			seedSpawn.get_children()[-1].free() 
-			seed_picked.emit()
+		
+		if event.keycode == KEY_E :
+			water_picked.emit()

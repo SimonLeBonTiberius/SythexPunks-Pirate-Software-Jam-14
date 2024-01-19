@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://didv5a1wwq7ns"]
+[gd_scene load_steps=11 format=3 uid="uid://b1doywa5nuo0q"]
 
-[ext_resource type="Script" path="res://scipt/SeedsDispenser.gd" id="1_d2tmo"]
+[ext_resource type="Script" path="res://prefab/water_dispenser.gd" id="1_4aehj"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_qtd56"]
-albedo_color = Color(0.886275, 0.556863, 0.266667, 1)
+albedo_color = Color(0, 0.760784, 0.52549, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fm5k4"]
 material = SubResource("ORMMaterial3D_qtd56")
@@ -11,26 +11,25 @@ material = SubResource("ORMMaterial3D_qtd56")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_kmag0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqnt1"]
-albedo_color = Color(0.521569, 0.356863, 0.313726, 1)
+albedo_color = Color(0.0470588, 1, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ipvm1"]
 material = SubResource("StandardMaterial3D_wqnt1")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ku87"]
-albedo_color = Color(0.305882, 0.639216, 0.533333, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ru6r5"]
+albedo_color = Color(0.411765, 0.996078, 0.835294, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2rhyu"]
-material = SubResource("StandardMaterial3D_7ku87")
+material = SubResource("StandardMaterial3D_ru6r5")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mdp1v"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g75ce"]
 
-[node name="SeedsDispenser" type="Node3D" node_paths=PackedStringArray("labelNode", "seedSpawn") groups=["seed_dispenser"]]
+[node name="WaterDispenser" type="Node3D" node_paths=PackedStringArray("labelNode") groups=["water_dispenser"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-script = ExtResource("1_d2tmo")
+script = ExtResource("1_4aehj")
 labelNode = NodePath("Label3D")
-seedSpawn = NodePath("SeedSpawn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_fm5k4")
@@ -61,10 +60,7 @@ shape = SubResource("SphereShape3D_g75ce")
 transform = Transform3D(1, 0, 0, 0, 0.68428, 0.729219, 0, -0.729219, 0.68428, 0.0731804, 2.15293, 1.24433)
 visible = false
 pixel_size = 0.01
-text = "PRESS F"
-
-[node name="SeedSpawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.828483, 0, 0)
+text = "PRESS E"
 
 [connection signal="body_entered" from="Area3D" to="." method="showInteractionButton"]
 [connection signal="body_exited" from="Area3D" to="." method="hideInteractionButton"]
