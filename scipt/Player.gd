@@ -13,10 +13,16 @@ var counter_seeds = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
-	var node_seed_dispenser = get_tree().get_nodes_in_group("seed_dispenser")[0]
-	var node_water_dispenser = get_tree().get_nodes_in_group("water_dispenser")[0]
-	node_seed_dispenser.connect('seed_picked',addSeeds)
-	node_water_dispenser.connect('water_picked',addWater)
+	var node_seed_dispenser_list = get_tree().get_nodes_in_group("seed_dispenser")
+	var node_water_dispenser_list = get_tree().get_nodes_in_group("water_dispenser")
+	if node_seed_dispenser_list:
+		var node_seed_dispenser = node_seed_dispenser_list[0]
+		node_seed_dispenser.connect('seed_picked',addSeeds)
+	if node_water_dispenser_list:
+		var node_water_dispenser = node_water_dispenser_list[0]
+		node_water_dispenser.connect('water_picked',addWater)
+	
+	
 	
 func addSeeds():
 	counter_seeds +=1
