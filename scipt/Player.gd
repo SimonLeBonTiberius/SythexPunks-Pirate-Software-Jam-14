@@ -42,7 +42,8 @@ func _physics_process(delta):
 	for i in get_slide_collision_count():
 		var collision: KinematicCollision3D = get_slide_collision(i)
 		var collidervar= collision.get_collider()
-		if(true):#collidervar.is_in_group('tiles')):
+		var booleval = collidervar.is_in_group('tiles')
+		if(booleval):#collidervar.is_in_group('tiles')):
 			var mesh: MeshInstance3D = collision.get_collider().get_node("MeshInstance3D")
 			var current_material = mesh.get_active_material(0).duplicate()
 			current_material.albedo_color = Color("5ca904")
