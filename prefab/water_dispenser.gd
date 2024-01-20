@@ -13,7 +13,7 @@ signal water_picked()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func water_dispenserhideInteractionButton(body):
+func hideInteractionButton(body):
 	labelNode.hide()
 	interactible = false
 func showInteractionButton(body):
