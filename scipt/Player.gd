@@ -86,8 +86,21 @@ func _physics_process(delta):
 	# Check collision with tiles
 	# check_collision_with_tiles()
 
+func set_variable(variable: String):
+	for i in get_slide_collision_count():
+			var collision: KinematicCollision3D = get_slide_collision(i)
+			var collider: Object = collision.get_collider()
+			if collider.is_in_group('tiles'):
+				if variable == 'seed':
+					collider.get_parent().set_seed()
+				elif variable == 'water':
+					collider.get_parent().set_water()
+
 func _process(_delta):
 	if Input.is_action_just_pressed("plant_seed_debug"):
 		print("Pressed plant_seed_debug")
+		set_variable('seed')
+
 	elif Input.is_action_just_pressed("drop_water_debug"):
 		print("Pressed drop_water_debug")
+		set_variable('water')

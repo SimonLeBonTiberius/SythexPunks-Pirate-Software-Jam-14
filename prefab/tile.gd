@@ -21,31 +21,39 @@ func _ready():
 	set_tile_color(desert_color)
 	timer = get_node('./Timer')
 	
-func set_variable(variable: String):
-	self['has_' + variable] = true
-	set_tile_color(self[variable + '_color'])
+func set_timer():
+	if timer.timeout.is_connected(self.on_timer_timeout):
+		timer.timeout.disconnect(self.on_timer_timeout)
+
 	timer.wait_time = 30
-	timer.connect('timeout', self.on_timer_timout)
+	timer.timeout.connect(self.on_timer_timeout)
 	timer.start()
 
 func set_seed():
-	set_variable('seed')
+	has_seed = true
+	if has_water:
+		set_tile_color(plant_color)
+	else:
+		set_tile_color(seed_color)
+	set_timer()
 
 func set_water():
-	set_variable('water')
+	has_water = true
+	if has_seed:
+		set_tile_color(plant_color)
+	else:
+		set_tile_color(water_color)
+	set_timer()
 	
 func on_timer_timeout():
 	if has_seed or has_water:
 		print("Reverting tile to desert...")
-		
 		has_seed = false
 		has_water = false
 		set_tile_color(desert_color)
 		
-	timer.disconnect('timeout', self.on_timer_timeout)
+	timer.timeout.disconnect(self.on_timer_timeout)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if has_seed and has_water:
-		print("Plant growing")
-		set_tile_color(plant_color)
+	pass
