@@ -39,6 +39,17 @@ func useSeeds():
 func useWater():
 	counter_water -=1
 	lbl_water.set_text(str(counter_water))
+	
+func check_collision_with_tiles():
+	for i in get_slide_collision_count():
+		var collision: KinematicCollision3D = get_slide_collision(i)
+		var collidervar= collision.get_collider()
+		var booleval = collidervar.is_in_group('tiles')
+		if(booleval):#collidervar.is_in_group('tiles')):
+			var mesh: MeshInstance3D = collision.get_collider().get_node("MeshInstance3D")
+			var current_material = mesh.get_active_material(0).duplicate()
+			current_material.albedo_color = Color("5ca904")
+			mesh.set_surface_override_material(0, current_material)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -54,13 +65,13 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("strafe_left", "strafe_right", "move_forward", "move_back")
 	if Input.is_action_pressed("move_forward"):
-		body.set_rotation_degrees (Vector3(0, 0, 0))
+		body.set_rotation_degrees(Vector3(0, 0, 0))
 	if Input.is_action_pressed("strafe_left"):
-		body.set_rotation_degrees (Vector3(0,90 , 0))
+		body.set_rotation_degrees(Vector3(0, 90, 0))
 	if Input.is_action_pressed("strafe_right"):
-		body.set_rotation_degrees (Vector3(0,-90 , 0))
+		body.set_rotation_degrees(Vector3(0, -90, 0))
 	if Input.is_action_pressed("move_back"):
-		body.set_rotation_degrees (Vector3(0,-180 , 0))
+		body.set_rotation_degrees(Vector3(0, -180, 0))
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -71,13 +82,12 @@ func _physics_process(delta):
 
 
 	move_and_slide()
+	
 	# Check collision with tiles
-	for i in get_slide_collision_count():
-		var collision: KinematicCollision3D = get_slide_collision(i)
-		var collidervar= collision.get_collider()
-		var booleval = collidervar.is_in_group('tiles')
-		if(booleval):#collidervar.is_in_group('tiles')):
-			var mesh: MeshInstance3D = collision.get_collider().get_node("MeshInstance3D")
-			var current_material = mesh.get_active_material(0).duplicate()
-			current_material.albedo_color = Color("5ca904")
-			mesh.set_surface_override_material(0, current_material)
+	# check_collision_with_tiles()
+
+func _process(_delta):
+	if Input.is_action_just_pressed("plant_seed_debug"):
+		print("Pressed plant_seed_debug")
+	elif Input.is_action_just_pressed("drop_water_debug"):
+		print("Pressed drop_water_debug")
