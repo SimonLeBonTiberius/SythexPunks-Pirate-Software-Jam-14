@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://j6pb48aaebc1"]
 
-[ext_resource type="Script" path="res://prefab/tile.gd" id="1_efiug"]
+[ext_resource type="Script" path="res://scipt/tile.gd" id="1_tqo2x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh4eo"]
 albedo_color = Color(0.729412, 0.584314, 0.380392, 1)
@@ -13,7 +13,7 @@ size = Vector3(1, 0.1, 1)
 size = Vector3(1, 0.1, 1)
 
 [node name="Tile" type="Node3D"]
-script = ExtResource("1_efiug")
+script = ExtResource("1_tqo2x")
 desert_color = Color(0.729412, 0.584314, 0.380392, 1)
 seed_color = Color(0.545098, 0.380392, 0.192157, 1)
 water_color = Color(0.262745, 0.2, 0.105882, 1)

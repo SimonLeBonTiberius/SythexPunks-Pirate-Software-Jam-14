@@ -7,6 +7,8 @@ const MOUSE_SENSITIVITY = 0.002
 @export var  body: Node3D
 @export var lbl_water: Label3D
 @export var lbl_seeds: Label3D
+@export var lbl_give_water: Label3D
+@export var lbl_plant: Label3D
 var counter_water = 0
 var counter_seeds = 0
 
@@ -15,30 +17,46 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	var node_seed_dispenser_list = get_tree().get_nodes_in_group("seed_dispenser")
 	var node_water_dispenser_list = get_tree().get_nodes_in_group("water_dispenser")
+	lbl_give_water.hide()
+	lbl_plant.hide()
 	if node_seed_dispenser_list:
 		var node_seed_dispenser = node_seed_dispenser_list[0]
 		node_seed_dispenser.connect('seed_picked',addSeeds)
 	if node_water_dispenser_list:
 		var node_water_dispenser = node_water_dispenser_list[0]
 		node_water_dispenser.connect('water_picked',addWater)
-	
-	
-	
+
+
+func checklblplant() -> bool:
+	return counter_seeds>0
+func checklblwater()-> bool:
+	return counter_water>0
+
 func addSeeds():
 	counter_seeds +=1
 	lbl_seeds.set_text(str(counter_seeds))
+	if (checklblplant()):
+		lbl_plant.show()
+	else: 
+		lbl_plant.hide()
 	
 func addWater():
 	counter_water +=1
 	lbl_water.set_text(str(counter_water))
+	checklblwater()
 	
 func useSeeds():
 	counter_seeds -=1
 	lbl_seeds.set_text(str(counter_seeds))
+	if (checklblplant()):
+		lbl_plant.show()
+	else: 
+		lbl_plant.hide()
 	
 func useWater():
 	counter_water -=1
 	lbl_water.set_text(str(counter_water))
+	checklblwater()
 	
 func check_collision_with_tiles():
 	for i in get_slide_collision_count():
@@ -104,3 +122,10 @@ func _process(_delta):
 	elif Input.is_action_just_pressed("drop_water_debug"):
 		print("Pressed drop_water_debug")
 		set_variable('water')
+		
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		
+		if event.keycode == KEY_X :
+			water_picked.emit()
+

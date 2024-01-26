@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://b1doywa5nuo0q"]
 
-[ext_resource type="Script" path="res://prefab/water_dispenser.gd" id="1_4aehj"]
+[ext_resource type="Script" path="res://scipt/water_dispenser.gd" id="1_4aehj"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_qtd56"]
 albedo_color = Color(0, 0.760784, 0.52549, 1)
