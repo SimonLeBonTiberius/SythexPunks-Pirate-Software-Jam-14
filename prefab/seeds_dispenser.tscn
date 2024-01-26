@@ -61,7 +61,9 @@ shape = SubResource("SphereShape3D_g75ce")
 transform = Transform3D(1, 0, 0, 0, 0.68428, 0.729219, 0, -0.729219, 0.68428, 0.0731804, 2.15293, 1.24433)
 visible = false
 pixel_size = 0.01
-text = "PRESS F"
+text = "press F  to drop seeds
+press E to pick them"
+font_size = 12
 
 [node name="SeedSpawn" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.828483, 0, 0)

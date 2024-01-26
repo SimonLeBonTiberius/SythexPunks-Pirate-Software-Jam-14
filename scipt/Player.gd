@@ -43,7 +43,10 @@ func addSeeds():
 func addWater():
 	counter_water +=1
 	lbl_water.set_text(str(counter_water))
-	checklblwater()
+	if (checklblwater()):
+		lbl_give_water.show()
+	else: 
+		lbl_give_water.hide()
 	
 func useSeeds():
 	counter_seeds -=1
@@ -56,7 +59,10 @@ func useSeeds():
 func useWater():
 	counter_water -=1
 	lbl_water.set_text(str(counter_water))
-	checklblwater()
+	if (checklblwater()):
+		lbl_give_water.show()
+	else: 
+		lbl_give_water.hide()
 	
 func check_collision_with_tiles():
 	for i in get_slide_collision_count():
@@ -127,5 +133,5 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		
 		if event.keycode == KEY_X :
-			water_picked.emit()
+			pass
 

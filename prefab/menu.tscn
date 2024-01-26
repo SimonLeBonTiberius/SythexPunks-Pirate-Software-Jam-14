@@ -1,0 +1,174 @@
+[gd_scene load_steps=4 format=3 uid="uid://p7oxuxmiboe8"]
+
+[ext_resource type="Script" path="res://scipt/menu.gd" id="1_qkwgt"]
+[ext_resource type="Texture2D" uid="uid://br5imln1docax" path="res://texture/Nebula_Garden.png" id="2_dy2yp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xptjf"]
+font_size = 32
+
+[node name="menu" type="Node2D" node_paths=PackedStringArray("Splashcreen", "panelClose", "panelMenu", "panelRules", "buttonContinue")]
+script = ExtResource("1_qkwgt")
+Splashcreen = NodePath("Node2D")
+panelClose = NodePath("Panel_close")
+panelMenu = NodePath("Panel_menu")
+panelRules = NodePath("Panel_rules")
+buttonContinue = NodePath("Panel_menu/container_menu/continue_game")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Node2D"]
+offset_left = -105.0
+offset_top = -23.0
+offset_right = 1815.0
+offset_bottom = 1057.0
+texture = ExtResource("2_dy2yp")
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = 655.0
+offset_top = 900.0
+offset_right = 1041.0
+offset_bottom = 971.0
+text = "PRESS ANY KEY TO START"
+label_settings = SubResource("LabelSettings_xptjf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel_menu" type="Panel" parent="."]
+visible = false
+offset_right = 1676.0
+offset_bottom = 1049.0
+
+[node name="container_menu" type="VBoxContainer" parent="Panel_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -385.0
+offset_top = -182.5
+offset_right = 366.0
+offset_bottom = 214.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
+
+[node name="new_game" type="Button" parent="Panel_menu/container_menu"]
+layout_mode = 2
+text = "New Game"
+
+[node name="continue_game" type="Button" parent="Panel_menu/container_menu"]
+visible = false
+layout_mode = 2
+text = "Load Game"
+
+[node name="option_buttons" type="Button" parent="Panel_menu/container_menu"]
+visible = false
+layout_mode = 2
+text = "Options"
+
+[node name="rules_button" type="Button" parent="Panel_menu/container_menu"]
+layout_mode = 2
+text = "Rules"
+
+[node name="quit_buttons" type="Button" parent="Panel_menu/container_menu"]
+layout_mode = 2
+text = "Exit"
+
+[node name="Panel_rules" type="Panel" parent="."]
+visible = false
+offset_right = 1673.0
+offset_bottom = 1042.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel_rules"]
+layout_mode = 0
+offset_right = 1677.0
+offset_bottom = 1053.0
+color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+
+[node name="lbl_rules" type="Label" parent="Panel_rules"]
+layout_mode = 2
+offset_left = 117.0
+offset_top = 188.0
+offset_right = 1550.0
+offset_bottom = 211.0
+text = "RULES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel_rules"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 284.0
+offset_right = 1511.0
+offset_bottom = 822.0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae sapien non neque vulputate tristique. Etiam quis rutrum odio. Maecenas tincidunt pulvinar blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut sed tempus erat, eget hendrerit nulla. Pellentesque dictum eros ac nulla tristique, id dapibus justo viverra. In sit amet fringilla lacus. Donec mollis sed ipsum eu rhoncus. In auctor mauris vitae justo sodales fringilla. Ut elementum, nunc in imperdiet ullamcorper, lacus nisl eleifend lorem, vel semper elit ipsum faucibus metus. Nulla et volutpat turpis.
+
+Ut eget risus sit amet quam placerat vehicula sit amet ac quam. Praesent gravida cursus leo quis luctus. Duis libero est, pulvinar cursus malesuada in, hendrerit in enim. Nulla sed magna sit amet nibh condimentum vehicula sit amet ut nunc. Nam dapibus eget justo in faucibus. Etiam tincidunt quam accumsan quam semper dictum. Suspendisse vitae gravida nibh, vel consectetur dui. Nam condimentum purus sed fringilla lacinia. Donec pulvinar dignissim turpis eget suscipit. Proin scelerisque elit eu augue auctor facilisis. Mauris lacinia, massa a consectetur tincidunt, tellus magna dignissim neque, ac ornare libero tortor ut tortor.
+
+Maecenas semper, velit ut fermentum posuere, est augue accumsan est, vel interdum dui magna faucibus ligula. Suspendisse commodo neque nec odio facilisis, eu tincidunt eros suscipit. Donec vel nulla pretium, blandit dolor id, auctor nisl. Sed eu ipsum luctus, laoreet orci in, cursus ex. Ut in tortor id arcu pulvinar malesuada. Proin purus neque, aliquet sit amet aliquam sed, vehicula eu dolor. Nullam a purus suscipit, eleifend neque ac, dapibus nisi. Curabitur cursus egestas tellus pulvinar posuere. Aliquam mattis sodales turpis ac pharetra. Duis viverra urna felis, non fermentum sapien imperdiet ac. Cras rhoncus neque fermentum dapibus consequat. Donec malesuada at augue quis molestie. Donec egestas diam sed erat condimentum gravida. Donec vel commodo neque. Sed luctus porta neque, vitae ornare nunc iaculis non.
+
+Nam auctor ut turpis et iaculis. Donec sagittis sapien et posuere mollis. Mauris ultricies sodales sem, eu tristique nunc malesuada eu. Etiam molestie orci quis odio porttitor, at dapibus nulla gravida. Pellentesque venenatis dui justo, luctus gravida dolor porta ut. Mauris ut mattis arcu, id tincidunt sem. Quisque ac volutpat magna, sit amet congue orci. Quisque eu molestie eros. Praesent et enim feugiat, aliquam neque at, dignissim nibh. Aliquam fermentum, nulla et hendrerit faucibus, diam nunc fringilla tortor, iaculis convallis tortor orci et lectus. Nunc id odio at erat aliquam commodo at eu risus. Nunc vehicula nulla tortor, quis euismod sem aliquet ac. Donec luctus mi quis turpis malesuada, ut porta massa mattis. In fringilla nunc nulla, eu cursus turpis dapibus vitae. Vestibulum sed lectus hendrerit, volutpat eros at, finibus lectus.
+
+Suspendisse non justo rutrum metus iaculis vehicula. Vivamus malesuada varius lobortis. Praesent eleifend quam nec elementum scelerisque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse gravida vitae felis at malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. Etiam hendrerit tortor sit amet turpis dictum, ut cursus diam dignissim. Aliquam iaculis placerat metus, ac fringilla purus vulputate a. Aenean sed blandit nulla. Nam congue tellus vitae libero varius ullamcorper. Vestibulum convallis, dui ac vestibulum cursus, nibh nibh dapibus purus, ac blandit velit nisi nec tortor. Nunc magna tortor, mattis a est quis, dignissim molestie est. Mauris sollicitudin lobortis venenatis."
+
+[node name="Button" type="Button" parent="Panel_rules"]
+layout_mode = 0
+offset_left = 674.0
+offset_top = 875.0
+offset_right = 896.0
+offset_bottom = 907.0
+text = "Close"
+
+[node name="Panel_close" type="Panel" parent="."]
+visible = false
+offset_right = 1673.0
+offset_bottom = 1042.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel_close"]
+layout_mode = 0
+offset_right = 1677.0
+offset_bottom = 1053.0
+color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+
+[node name="box_close" type="VBoxContainer" parent="Panel_close"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 422.0
+offset_right = 1547.0
+offset_bottom = 875.0
+
+[node name="lbl_close" type="Label" parent="Panel_close/box_close"]
+layout_mode = 2
+text = "DO YOU WANT TO CLOSE THE GAME?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel_close/box_close"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="close_game_dialog_box" type="VBoxContainer" parent="Panel_close/box_close/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="btn_yes" type="Button" parent="Panel_close/box_close/MarginContainer/close_game_dialog_box"]
+layout_mode = 2
+text = "Yes"
+
+[node name="btn_no" type="Button" parent="Panel_close/box_close/MarginContainer/close_game_dialog_box"]
+layout_mode = 2
+text = "No
+"
+
+[connection signal="pressed" from="Panel_menu/container_menu/new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Panel_menu/container_menu/continue_game" to="." method="_on_continue_game_pressed"]
+[connection signal="pressed" from="Panel_menu/container_menu/option_buttons" to="." method="_on_option_buttons_pressed"]
+[connection signal="pressed" from="Panel_menu/container_menu/rules_button" to="." method="_on_rules_button_pressed"]
+[connection signal="pressed" from="Panel_menu/container_menu/quit_buttons" to="." method="_on_quit_buttons_pressed"]
+[connection signal="pressed" from="Panel_rules/Button" to="." method="_on_button_rules_close_pressed"]
+[connection signal="pressed" from="Panel_close/box_close/MarginContainer/close_game_dialog_box/btn_yes" to="." method="_on_btn_yes_pressed"]
+[connection signal="pressed" from="Panel_close/box_close/MarginContainer/close_game_dialog_box/btn_no" to="." method="_on_btn_no_pressed"]

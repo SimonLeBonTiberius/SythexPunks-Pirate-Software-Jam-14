@@ -60,7 +60,8 @@ shape = SubResource("SphereShape3D_g75ce")
 transform = Transform3D(1, 0, 0, 0, 0.68428, 0.729219, 0, -0.729219, 0.68428, 0.0731804, 2.15293, 1.24433)
 visible = false
 pixel_size = 0.01
-text = "PRESS E"
+text = "press E to pick water"
+font_size = 12
 
 [connection signal="body_entered" from="Area3D" to="." method="showInteractionButton"]
 [connection signal="body_exited" from="Area3D" to="." method="hideInteractionButton"]

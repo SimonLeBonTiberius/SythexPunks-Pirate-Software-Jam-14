@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnx6hcn3mn5ao"]
+[gd_scene load_steps=7 format=3 uid="uid://bnx6hcn3mn5ao"]
 
 [ext_resource type="PackedScene" uid="uid://c18woqs77taft" path="res://prefab/player.tscn" id="1_3t2u8"]
 [ext_resource type="Script" path="res://scipt/World Map.gd" id="3_iqltd"]
+[ext_resource type="PackedScene" uid="uid://p7oxuxmiboe8" path="res://prefab/menu.tscn" id="3_j2cb8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hh1sr"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -18,21 +19,27 @@ glow_enabled = true
 
 [node name="Root" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="GameNode" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="GameNode"]
 environment = SubResource("Environment_ataqd")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="GameNode"]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 2.07308, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("1_3t2u8")]
+[node name="Player" parent="GameNode" instance=ExtResource("1_3t2u8")]
 
-[node name="Camera" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="GameNode"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 11.5)
 keep_aspect = 0
 fov = 60.0
 size = 20.0
 far = 100.0
 
-[node name="World Map" type="Node3D" parent="."]
+[node name="World Map" type="Node3D" parent="GameNode"]
 script = ExtResource("3_iqltd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="menu" parent="CanvasLayer" instance=ExtResource("3_j2cb8")]
