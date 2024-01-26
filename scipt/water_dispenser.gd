@@ -7,16 +7,18 @@ signal water_picked()
 
 # Called when the node enters the scene tree for the first time.
 #func _ready():
-#	pass # Replace with function body.
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+func _process(delta):
+	if !$Water_Tank/AnimationPlayer.is_playing():
+		$Water_Tank/AnimationPlayer.play("Water_Tank_Idle")
 #	pass
-func hideInteractionButton(body):
+func hideInteractionButton(_body):
 	labelNode.hide()
 	interactible = false
-func showInteractionButton(body):
+func showInteractionButton(_body):
 	labelNode.show()
 	interactible = true
 func _input(event):
@@ -24,3 +26,5 @@ func _input(event):
 		
 		if event.keycode == KEY_E :
 			water_picked.emit()
+			$Water_Tank/AnimationPlayer.stop()
+			$Water_Tank/AnimationPlayer.play("Water_Tank_Use")

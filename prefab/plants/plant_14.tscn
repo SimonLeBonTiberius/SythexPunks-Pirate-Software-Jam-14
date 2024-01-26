@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://blci7qhglw36o"]
+
+[ext_resource type="PackedScene" uid="uid://tchnv6qftrnh" path="res://models/Plant_14.glb" id="1_ygcq0"]
+
+[node name="Plant_14" instance=ExtResource("1_ygcq0")]

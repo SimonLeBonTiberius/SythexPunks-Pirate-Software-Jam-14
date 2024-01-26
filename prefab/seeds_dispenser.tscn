@@ -1,26 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://didv5a1wwq7ns"]
+[gd_scene load_steps=5 format=3 uid="uid://didv5a1wwq7ns"]
 
 [ext_resource type="Script" path="res://scipt/SeedsDispenser.gd" id="1_d2tmo"]
-
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_qtd56"]
-albedo_color = Color(0.886275, 0.556863, 0.266667, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_fm5k4"]
-material = SubResource("ORMMaterial3D_qtd56")
-
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_kmag0"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqnt1"]
-albedo_color = Color(0.521569, 0.356863, 0.313726, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ipvm1"]
-material = SubResource("StandardMaterial3D_wqnt1")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ku87"]
-albedo_color = Color(0.305882, 0.639216, 0.533333, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_2rhyu"]
-material = SubResource("StandardMaterial3D_7ku87")
+[ext_resource type="PackedScene" uid="uid://q42skabv7qyw" path="res://models/Seed_Machine.glb" id="2_7r0w4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mdp1v"]
 
@@ -32,17 +13,8 @@ script = ExtResource("1_d2tmo")
 labelNode = NodePath("Label3D")
 seedSpawn = NodePath("SeedSpawn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_fm5k4")
-surface_material_override/0 = SubResource("ORMMaterial3D_kmag0")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.446697, 0)
-mesh = SubResource("CapsuleMesh_ipvm1")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(-0.00119379, 0.199996, 0, -0.199996, -0.00119379, 0, 0, 0, 0.2, 0.464218, 0, 0)
-mesh = SubResource("CylinderMesh_2rhyu")
+[node name="Seed_Machine" parent="." instance=ExtResource("2_7r0w4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -66,7 +38,7 @@ press E to pick them"
 font_size = 12
 
 [node name="SeedSpawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.828483, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32999, 0.612072, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="showInteractionButton"]
 [connection signal="body_exited" from="Area3D" to="." method="hideInteractionButton"]

@@ -12,8 +12,9 @@ size = Vector3(1, 0.1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lrk84"]
 size = Vector3(1, 0.1, 1)
 
-[node name="Tile" type="Node3D"]
+[node name="Tile" type="Node3D" node_paths=PackedStringArray("plant_spawner_node")]
 script = ExtResource("1_tqo2x")
+plant_spawner_node = NodePath("plant-spawner-node")
 desert_color = Color(0.729412, 0.584314, 0.380392, 1)
 seed_color = Color(0.545098, 0.380392, 0.192157, 1)
 water_color = Color(0.262745, 0.2, 0.105882, 1)
@@ -33,3 +34,6 @@ shape = SubResource("BoxShape3D_lrk84")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 30.0
 one_shot = true
+
+[node name="plant-spawner-node" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0496215, 0)

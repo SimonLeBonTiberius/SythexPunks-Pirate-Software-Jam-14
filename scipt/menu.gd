@@ -17,8 +17,8 @@ func _ready():
 	get_tree().paused = true
 	panelClose.hide()
 	var tween = get_tree().create_tween()
-	tween.tween_property($Label, "modulate", Color(1,1,1,0), 1)
-	tween.tween_property($Label, "modulate", Color(1,1,1,1), 1)
+	tween.tween_property($Node2D/Label, "modulate", Color(1,1,1,0), 1)
+	tween.tween_property($Node2D/Label, "modulate", Color(1,1,1,1), 1)
 	tween.set_loops()
 	#tween.tween_property($Label, "scale", Vector2(), 1)
 	

@@ -12,7 +12,9 @@ signal seed_picked()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+func _process(delta):
+	if !$Seed_Machine/AnimationPlayer.is_playing():
+		$Seed_Machine/AnimationPlayer.play("Seed_Machine_Idle")
 #	pass
 func hideInteractionButton(body):
 	labelNode.hide()
@@ -28,3 +30,5 @@ func _input(event):
 		if event.keycode == KEY_E && seedSpawn.get_child_count() > 0:
 			seedSpawn.get_children()[-1].free() 
 			seed_picked.emit()
+			$Seed_Machine/AnimationPlayer.stop()
+			$Seed_Machine/AnimationPlayer.play("Seed_Machine_Use")

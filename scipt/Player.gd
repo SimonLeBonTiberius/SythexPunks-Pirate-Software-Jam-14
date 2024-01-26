@@ -15,6 +15,7 @@ var counter_seeds = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
+	
 	var node_seed_dispenser_list = get_tree().get_nodes_in_group("seed_dispenser")
 	var node_water_dispenser_list = get_tree().get_nodes_in_group("water_dispenser")
 	lbl_give_water.hide()
@@ -35,6 +36,8 @@ func checklblwater()-> bool:
 func addSeeds():
 	if counter_seeds>= 3 :
 		return
+	$Robutt/AnimationPlayer.stop()
+	$Robutt/AnimationPlayer.play("Robutt_Get_Resource")
 	counter_seeds +=1
 	lbl_seeds.set_text(str(counter_seeds))
 	if (checklblplant()):
@@ -45,6 +48,8 @@ func addSeeds():
 func addWater():
 	if counter_water>= 3 :
 		return
+	$Robutt/AnimationPlayer.stop()
+	$Robutt/AnimationPlayer.play("Robutt_Get_Resource")
 	counter_water +=1
 	lbl_water.set_text(str(counter_water))
 	if (checklblwater()):
@@ -93,13 +98,20 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("strafe_left", "strafe_right", "move_forward", "move_back")
 	if Input.is_action_pressed("move_forward"):
-		body.set_rotation_degrees(Vector3(0, 0, 0))
-	if Input.is_action_pressed("strafe_left"):
-		body.set_rotation_degrees(Vector3(0, 90, 0))
-	if Input.is_action_pressed("strafe_right"):
-		body.set_rotation_degrees(Vector3(0, -90, 0))
-	if Input.is_action_pressed("move_back"):
 		body.set_rotation_degrees(Vector3(0, -180, 0))
+		$Robutt/AnimationPlayer.play("null")
+	elif Input.is_action_pressed("strafe_left"):
+		body.set_rotation_degrees(Vector3(0, -90, 0))
+		$Robutt/AnimationPlayer.play("null")
+	elif  Input.is_action_pressed("strafe_right"):
+		body.set_rotation_degrees(Vector3(0, 90, 0))
+		$Robutt/AnimationPlayer.play("null")
+	elif  Input.is_action_pressed("move_back"):
+		body.set_rotation_degrees(Vector3(0, 0, 0))
+		$Robutt/AnimationPlayer.play("null")
+	else:
+		if !$Robutt/AnimationPlayer.is_playing() || $Robutt/AnimationPlayer.get_current_animation() == "null":
+			$Robutt/AnimationPlayer.play("Robutt_Idle")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
