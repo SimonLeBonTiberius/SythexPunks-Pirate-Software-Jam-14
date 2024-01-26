@@ -1,18 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://p7oxuxmiboe8"]
+[gd_scene load_steps=5 format=3 uid="uid://p7oxuxmiboe8"]
 
 [ext_resource type="Script" path="res://scipt/menu.gd" id="1_qkwgt"]
 [ext_resource type="Texture2D" uid="uid://br5imln1docax" path="res://texture/Nebula_Garden.png" id="2_dy2yp"]
+[ext_resource type="AudioStream" uid="uid://d1jor3jnb51du" path="res://sounds/Music/Gameplay_music.mp3" id="3_xt3ba"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xptjf"]
 font_size = 32
 
-[node name="menu" type="Node2D" node_paths=PackedStringArray("Splashcreen", "panelClose", "panelMenu", "panelRules", "buttonContinue")]
+[node name="menu" type="Node2D" node_paths=PackedStringArray("Splashcreen", "panelClose", "panelMenu", "panelRules", "panelOption", "buttonContinue", "audioBackground")]
 script = ExtResource("1_qkwgt")
 Splashcreen = NodePath("Node2D")
 panelClose = NodePath("Panel_close")
 panelMenu = NodePath("Panel_menu")
 panelRules = NodePath("Panel_rules")
+panelOption = NodePath("Panel_option")
 buttonContinue = NodePath("Panel_menu/container_menu/continue_game")
+audioBackground = NodePath("AudioStreamPlayer2D")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -55,17 +58,16 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 alignment = 1
 
+[node name="continue_game" type="Button" parent="Panel_menu/container_menu"]
+visible = false
+layout_mode = 2
+text = "Continue Game"
+
 [node name="new_game" type="Button" parent="Panel_menu/container_menu"]
 layout_mode = 2
 text = "New Game"
 
-[node name="continue_game" type="Button" parent="Panel_menu/container_menu"]
-visible = false
-layout_mode = 2
-text = "Load Game"
-
 [node name="option_buttons" type="Button" parent="Panel_menu/container_menu"]
-visible = false
 layout_mode = 2
 text = "Options"
 
@@ -164,11 +166,63 @@ layout_mode = 2
 text = "No
 "
 
-[connection signal="pressed" from="Panel_menu/container_menu/new_game" to="." method="_on_new_game_pressed"]
+[node name="Panel_option" type="Panel" parent="."]
+visible = false
+offset_right = 1673.0
+offset_bottom = 1042.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel_option"]
+layout_mode = 0
+offset_right = 1677.0
+offset_bottom = 1053.0
+color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+
+[node name="box_option" type="VBoxContainer" parent="Panel_option"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 422.0
+offset_right = 1547.0
+offset_bottom = 875.0
+
+[node name="lbl_options" type="Label" parent="Panel_option/box_option"]
+layout_mode = 2
+text = "DO YOU WANT TO CLOSE THE GAME?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel_option/box_option"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="option_game_dialog_box" type="VBoxContainer" parent="Panel_option/box_option/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="Panel_option/box_option/MarginContainer/option_game_dialog_box"]
+layout_mode = 2
+text = "MUSIC OFF"
+alignment = 1
+
+[node name="Button_close_option" type="Button" parent="Panel_option"]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 817.0
+offset_right = 953.0
+offset_bottom = 885.0
+text = "CLOSE"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xt3ba")
+autoplay = true
+
 [connection signal="pressed" from="Panel_menu/container_menu/continue_game" to="." method="_on_continue_game_pressed"]
+[connection signal="pressed" from="Panel_menu/container_menu/new_game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="Panel_menu/container_menu/option_buttons" to="." method="_on_option_buttons_pressed"]
 [connection signal="pressed" from="Panel_menu/container_menu/rules_button" to="." method="_on_rules_button_pressed"]
 [connection signal="pressed" from="Panel_menu/container_menu/quit_buttons" to="." method="_on_quit_buttons_pressed"]
 [connection signal="pressed" from="Panel_rules/Button" to="." method="_on_button_rules_close_pressed"]
 [connection signal="pressed" from="Panel_close/box_close/MarginContainer/close_game_dialog_box/btn_yes" to="." method="_on_btn_yes_pressed"]
 [connection signal="pressed" from="Panel_close/box_close/MarginContainer/close_game_dialog_box/btn_no" to="." method="_on_btn_no_pressed"]
+[connection signal="pressed" from="Panel_option/box_option/MarginContainer/option_game_dialog_box/CheckBox" to="." method="_on_check_box_music_pressed"]
+[connection signal="pressed" from="Panel_option/Button_close_option" to="." method="_on_button_close_option_pressed"]

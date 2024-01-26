@@ -3,7 +3,9 @@ extends Node2D
 @export var panelClose: Panel
 @export var panelMenu: Panel
 @export var panelRules:Panel
+@export var panelOption:Panel
 @export var buttonContinue :Button
+@export var audioBackground : AudioStreamPlayer2D
 signal reset 
 var firstTime = true
 
@@ -35,6 +37,7 @@ func _process(_delta):
 
 func _on_new_game_pressed():
 	get_tree().paused = false
+	buttonContinue.show()
 	panelMenu.hide()
 	reset.emit()
 	
@@ -46,7 +49,7 @@ func _on_continue_game_pressed():
 
 
 func _on_option_buttons_pressed():
-	pass # Replace with function body.
+	panelOption.show()
 
 
 func _on_quit_buttons_pressed():
@@ -76,3 +79,11 @@ func _input(event):
 			panelMenu.show()
 			get_tree().paused = true
 		
+
+
+func _on_check_box_music_pressed():
+	audioBackground.playing = !audioBackground.playing
+
+
+func _on_button_close_option_pressed():
+	panelOption.hide()
