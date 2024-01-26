@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnx6hcn3mn5ao"]
+[gd_scene load_steps=9 format=3 uid="uid://bnx6hcn3mn5ao"]
 
 [ext_resource type="PackedScene" uid="uid://c18woqs77taft" path="res://prefab/player.tscn" id="1_3t2u8"]
 [ext_resource type="Script" path="res://scipt/World Map.gd" id="3_iqltd"]
 [ext_resource type="PackedScene" uid="uid://p7oxuxmiboe8" path="res://prefab/menu.tscn" id="3_j2cb8"]
+[ext_resource type="PackedScene" uid="uid://didv5a1wwq7ns" path="res://prefab/seeds_dispenser.tscn" id="4_ijhjj"]
+[ext_resource type="PackedScene" uid="uid://b1doywa5nuo0q" path="res://prefab/water_dispenser.tscn" id="5_x6ahl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hh1sr"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -43,3 +45,9 @@ script = ExtResource("3_iqltd")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="menu" parent="CanvasLayer" instance=ExtResource("3_j2cb8")]
+
+[node name="WaterDispenser" parent="." instance=ExtResource("5_x6ahl")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.56902, 1, 3.91476)
+
+[node name="SeedsDispenser" parent="." instance=ExtResource("4_ijhjj")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.46322, 1, 3.96314)

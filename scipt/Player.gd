@@ -33,6 +33,8 @@ func checklblwater()-> bool:
 	return counter_water>0
 
 func addSeeds():
+	if counter_seeds>= 3 :
+		return
 	counter_seeds +=1
 	lbl_seeds.set_text(str(counter_seeds))
 	if (checklblplant()):
@@ -41,6 +43,8 @@ func addSeeds():
 		lbl_plant.hide()
 	
 func addWater():
+	if counter_water>= 3 :
+		return
 	counter_water +=1
 	lbl_water.set_text(str(counter_water))
 	if (checklblwater()):
@@ -122,12 +126,16 @@ func set_variable(variable: String):
 
 func _process(_delta):
 	if Input.is_action_just_pressed("plant_seed_debug"):
-		print("Pressed plant_seed_debug")
-		set_variable('seed')
+		if checklblplant():
+			print("Pressed plant_seed_debug")
+			set_variable('seed')
+			useSeeds()
 
 	elif Input.is_action_just_pressed("drop_water_debug"):
-		print("Pressed drop_water_debug")
-		set_variable('water')
+		if checklblwater():
+			print("Pressed drop_water_debug")
+			set_variable('water')
+			useWater()
 		
 func _input(event):
 	if event is InputEventKey and event.pressed:
